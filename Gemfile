@@ -5,9 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Rails Default
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
+gem 'rails', '5.1.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -33,6 +34,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -41,10 +45,49 @@ group :development, :test do
   gem 'selenium-webdriver'
 end
 
+
+
+
+# Learn Rails
+
+# Help to use Rails without db
+gem 'activerecord-tableless'
+
+# Configuration Framework
+gem 'figaro'
+
+# Access to the MailChimp API
+gem 'gibbon'
+
+# Use Google Drive spreadsheets for data storage
+gem 'google_drive'
+
+# Use for static pages like "about"
+gem 'high_voltage'
+
+# Use to create forms easily
+gem 'simple_form'
+
+# Use for front-end framework
+gem 'compass-rails' # Support
+gem 'zurb-foundation' # Framework
+
+
+# Specifying a group for development or testing ensures a gem is not loaded in production,
+# reducing the application’s memory footprint.
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console', '>= 3.3.0' # Existing 
+
+  # New 
+
+  # Use for better error tracking
+  gem 'better_errors'
+
+  # Use to suppress distracting messages in the log
+  # gem 'quiet_assets'
+
+  # Use to generate application layout files
+  gem 'rails_layout'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

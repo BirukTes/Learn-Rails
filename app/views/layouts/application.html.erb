@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>LearnRails</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "Learn Rails" %></title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Learn Rails" %>">
+  <%# You’ll recall from the “Just Enough Ruby” chapter that it is a fancy conditional statement that says, “if
+content_for?(:title) is present in the view file, use yield(:title) to include it, otherwise just
+display ‘Learn Rails’.” %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+  <%# The Rails asset pipeline utility is one of the most powerful features of the platform. It offers
+convenience to the developer and helps organize an application; more importantly, it
+improves the speed and responsiveness of any complex website.%>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%#	 The <header> tag is typically used for branding or navigation. %>
+<header>
+  <%= render 'layouts/navigation' %>
+</header>
+<%#	<main role="main">, “The main content area of a document includes content that is unique
+to that document and excludes content that is repeated across a set of documents such as site
+navigation links, copyright information, site logos.” %>
+<main role="main">
+  <%= render 'layouts/messages' %>
+  <%= yield %>
+</main>
+</body>
+<footer>
+  <%= render 'layouts/footer' %>
+</footer>
 </html>

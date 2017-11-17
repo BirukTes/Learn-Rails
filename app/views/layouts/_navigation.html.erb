@@ -1,4 +1,16 @@
-<ul class="nav">
-  <li><%= link_to 'Home', root_path %></li>
-  <%= render 'layouts/navigation_links' %>
-</ul>
+<%# navigation styled for Zurb Foundation 5 %>
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name"><%= link_to 'Home', root_path %></li>
+    <%# . It is important to preserve the enclosing layout and
+classes, even if you don’t want to display a site name or logo. The enclosing layout is used to
+generate the navigation menu when the browser window shrinks to accommodate a tablet or
+smartphone. %>
+    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+  </ul>
+  <div class="top-bar-section">
+    <ul>
+      <%= render 'layouts/navigation_links' %>
+    </ul>
+  </div>
+</nav>

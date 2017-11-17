@@ -1,9 +1,13 @@
+<%# Rails flash messages styled for Zurb Foundation %>
 <% flash.each do |name, msg| %>
-    <%# First, the expression, if msg.is_a?(String) serves as a test to make sure we only display messages that are strings. %>
-    <% if msg.is_a?(String) %>
-        <%# Second, we use the Rails content_tag view helper to create the HTML div . The content_tag
+ <%# First, the expression, if msg.is_a?(String) serves as a test to make sure we only display messages that are strings. %>
+  <% if msg.is_a?(String) %>
+    <div data-alert class="alert-box round <%= name.to_s == 'notice' ? 'success' : 'alert' %>">
+             <%# Second, we use the Rails content_tag view helper to create the HTML div . The content_tag
 helper eliminates the messy soup of angle brackets and quote marks we used to create the
 HTML output in the example above. %>
-        <%= content_tag(:div, msg, :class => "flash_#{name}") %>
-    <% end %>
+     <%= content_tag :div, msg %>
+      <a href="#" class="close">&times;</a>
+    </div>
+  <% end %>
 <% end %>

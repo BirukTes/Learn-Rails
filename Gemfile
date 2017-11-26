@@ -130,6 +130,8 @@ gem 'bootstrap-sass'
 gem 'gibbon'
 gem 'high_voltage'
 gem 'jquery-rails'
+# gem "activerecord-tableless"
+
 group :development do
   gem 'better_errors'
   gem 'rails_layout'

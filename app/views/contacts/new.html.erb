@@ -1,0 +1,21 @@
+<% content_for :title do %>Contact<% end %>
+<h3>Contact</h3>
+<div class="form">
+<%# Earlier, I explained that SimpleForm configures itself if we provide a model that inherits
+from ActiveRecord. SimpleForm gives the form a name that matches the model name. And
+SimpleForm generates a destination URL based on the model name %>
+<%= simple_form_for @contact do |form| %>
+<%# SimpleForm uses the @contact instance variable to name the form, set a destination for the
+form data, and initialize each field in the form using attributes from the Contact model. %>
+<%= form.error_notification %>
+<%# We’ve added the error_notification method which provides all the error handling. The
+method call is very simple but the results will be impressive. %>
+<%= form.input :name, autofocus: true %> 
+<%= form.input :email %>
+<%= form.input :content, as: :text %>
+<%= form.button :submit, 'Submit', class: 'submit' %>
+<% end %>
+
+<%# Setting the values for the form fields from the attributes in the model is called “binding the
+form to the object” and you can read about it in the RailsGuides: Form Helpers article. %>
+</div>

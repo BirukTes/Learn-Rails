@@ -1,3 +1,27 @@
 <% content_for :title do %>Contact<%end%>
 <%# We include a content_for Rails view helper that passes a page title to the application layout. %>
 <h3>Contact Me.</h3>
+<div class="form">
+<%# The simple_form_for view helper instantiates a form object which we assign to a variable
+named form . %>
+<%# The view helper simple_form_for requires parameters and a block.
+Every form needs a name and a route in the application that will handle processing of the
+form data. The parameters are:
+• contact – the name of the form
+• url – set to contact_path , the destination for the form data %>
+<%= simple_form_for :contact, url: contact_path do |form| %>
+<%# the form object is passed to the block and methods belonging to the form object are called to
+produce HTML output. %>
+<%# Each of the form methods takes various parameters, such as:
+• autofocus – displays the cursor in the field
+• as: :text – displays a multiline text area
+• input_html – adds any HTML such as a CSS class
+• class – applies a CSS class to modify a button’s appearance
+Each line of code produces an element in the form
+such as a field or a button. %>
+<%= form.input :name, autofocus: true %>
+<%= form.input :email %>
+<%= form.input :content, as: :text %>
+<%= form.button :submit, 'Submit', class: 'submit' %>
+<% end %>
+</div>

@@ -34,7 +34,9 @@ class ContactsController < ApplicationController
     # Make sure that data is valid
     if @contact.valid?
       # TODO save data @contact.update_spreadsheet, not functional
-      # TODO send message
+
+      UserMailer.contact_email(@contact).deliver
+
       # There is no need to dig into to params no we can access directly from the model
       flash[:notice] = "Message sent from #{@contact.name}."
       redirect_to root_path

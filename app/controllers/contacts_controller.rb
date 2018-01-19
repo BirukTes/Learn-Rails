@@ -39,7 +39,7 @@ class ContactsController < ApplicationController
 
       # There is no need to dig into to params no we can access directly from the model
       flash[:notice] = "Message sent from #{@contact.name}."
-      redirect_to root_path
+            redirect_to root_path(flash)
     else
       render :new
     end

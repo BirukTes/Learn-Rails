@@ -142,6 +142,7 @@ group :development, :test do
 end
 group :production do
   gem 'pg'
+  #logging and static asset
   gem 'rails_12factor'
   gem 'thin'
 end

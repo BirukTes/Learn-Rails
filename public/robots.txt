@@ -1,1 +1,5 @@
 # See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+# public/robots.txt
+# To allow spiders to visit the entire site comment out the next two lines:
+User-Agent: *
+Disallow: /

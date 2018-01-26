@@ -1,0 +1,4 @@
+ # Many websites include a robots.txt file for nosy bots so it’s only fair that you offer a
+ # humans.txt file for nosy people. Few people will look for it but you can add a file public/
+ # humans.txt to credit and identify the creators and software behind the website. The HTML5
+ # Boilerplate project offers an example file or you can borrow from RailsApps.
